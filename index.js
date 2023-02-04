@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true,
 }));
+app.use('/', homeRouter);
 app.engine('.hbs', hbs.engine({extname: '.hbs'}));
 app.set('view engine', '.hbs');
-app.use('/', homeRouter);
 app.listen(PORT, 'localhost');
