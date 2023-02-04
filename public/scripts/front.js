@@ -1,2 +1,5 @@
-const data = fetch('/data/data.JSON');
-console.log(data);
+fetch('/data/json')
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+console.log('data');
