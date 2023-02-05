@@ -7,15 +7,18 @@ const hbs = require('express-handlebars');
 const app = express();
 app.use(express.json());
 app.use(express.static('public'));
-//to wyzej CHYBA zalatwia cos co bedzie od buta po / (do sprawdzenia)
 app.use(express.urlencoded({
     extended: true,
 }));
 app.post('/', homeRouter)
 console.log('zapostowane');
-//app.use('/', homeRouter);
 app.use('/data/json', fetchRouter);
-//app.post('/data/json', fetchRouter);
+app.post('/task/set', (req, res)=>{
+    const result = res.body;
+    console.log(response);
+    res.send('OK');
+
+})
 app.use('/', formRouter);
 app.engine('.hbs', hbs.engine({extname: '.hbs'}));
 app.set('view engine', '.hbs');

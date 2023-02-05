@@ -5,6 +5,7 @@ const fs = require('fs').promises;
 
 formRouter
 .post('/task/set', async(req, res)=>{
+    console.log(req.body);
     let input = await fs.readFile('./public/data/data.JSON', 'utf-8');
     input = JSON.parse(input);
     let data = req.body;
