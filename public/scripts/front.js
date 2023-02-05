@@ -15,9 +15,12 @@ console.log('data');
     const toDoPanel = document.querySelector('#ToDoPanel');
     toDoPanel.innerHTML = '';
     Object.keys(data).forEach(key => {
-      const para = document.createElement("p");
-      const node = document.createTextNode(data[key]);
+      const para = document.createElement("div");
+      const node = document.createTextNode(key);
+      const checkbox = document.createElement("INPUT");
+      checkbox.setAttribute("type", "checkbox");
       para.appendChild(node);
+      para.appendChild(checkbox);
       para.classList.add('task');
       toDoPanel.appendChild(para);
     })
