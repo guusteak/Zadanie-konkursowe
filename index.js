@@ -14,7 +14,7 @@ app.post('/', homeRouter)
 console.log('zapostowane');
 //app.use('/', homeRouter);
 app.use('/data/json', fetchRouter);
-app.post('/data/json', fetchRouter);
+//app.post('/data/json', fetchRouter);
 app.engine('.hbs', hbs.engine({extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.listen(PORT, 'localhost');
