@@ -2,11 +2,28 @@ let data;
 
 const response = async() =>{
   console.log('Response Function Running');
-  const options = {method: 'POST', body: data};
-  const res = await fetch('/task/set', options);
-  const isResCorrect = await res.text();
-  console.log(isResCorrect);
+  console.log(data);
+  const res = await fetch('/task/update', 
+  {
+    method: 'POST',
+    headers: {
+      "Content-type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
 }
+
+/*const responseAdd = async() =>{
+  console.log('Response Function Running');
+  const inp = document.querySelector('.ni');
+  let outp = {};
+  outp[`${inp.value}`] = false;
+  const options = {
+    method: "POST",
+    body: outp
+  };
+  const resp = await fetch('/task/set', options);
+}*/
 
 const removeScript = (node) =>{
   console.log('removeScript running');
@@ -62,6 +79,8 @@ console.log('data');
 const update = document.querySelector('.update');
 update.addEventListener('click', response);
 
+//const add = document.querySelector('.add');
+//add.addEventListener('click', responseAdd);
 
 showTask();
 
