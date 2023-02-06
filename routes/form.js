@@ -2,6 +2,7 @@ const express = require('express');
 const formRouter = express.Router();
 const fs = require('fs').promises;
 const bodyParser = require('body-parser');
+const { write, writeFile } = require('fs');
 const jsonParser = bodyParser.json();
 
 formRouter
@@ -11,7 +12,7 @@ formRouter
     input = JSON.parse(input);
     let data = req.body;
     Object.keys(data).forEach(key=>{
-        input[`${data[key]}`] = false; 
+        input[`${key}`] = false; 
     });
     input = JSON.stringify(input);
     await fs.writeFile('./public/data/data.JSON', input);
@@ -21,9 +22,7 @@ formRouter
     console.log('body parser json')
     console.log('Ok? kurwa xd');
     console.log(req.body);
-    console.log(res.body);
-    const result = res.body;
-    console.log(result);
+    await fs.writeFile('./public/data/data.JSON', JSON.stringify(req.body));
     res.send('OK');
 });
 

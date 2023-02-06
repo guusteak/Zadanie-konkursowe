@@ -13,17 +13,20 @@ const response = async() =>{
   })
 }
 
-/*const responseAdd = async() =>{
-  console.log('Response Function Running');
+const responseAdd = async() =>{
+  console.log('Response add Function Running');
   const inp = document.querySelector('.ni');
   let outp = {};
   outp[`${inp.value}`] = false;
-  const options = {
+  console.log(outp);
+  const res = await fetch('/task/set',{
     method: "POST",
-    body: outp
-  };
-  const resp = await fetch('/task/set', options);
-}*/
+    headers: {
+      "Content-type": "application/json"
+    },
+    body: JSON.stringify(outp)
+  });
+}
 
 const removeScript = (node) =>{
   console.log('removeScript running');
@@ -79,8 +82,8 @@ console.log('data');
 const update = document.querySelector('.update');
 update.addEventListener('click', response);
 
-//const add = document.querySelector('.add');
-//add.addEventListener('click', responseAdd);
+const add = document.querySelector('.add');
+add.addEventListener('click', responseAdd);
 
 showTask();
 
