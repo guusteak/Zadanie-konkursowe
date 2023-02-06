@@ -20,7 +20,7 @@ formRouter
   })
   .post("/task/update", jsonParser, async (req, res) => {
     console.log("body parser json");
-    console.log("Ok? kurwa xd");
+    console.log("Ok? xd");
     console.log(req.body);
     await fs.writeFile("./public/data/data.JSON", JSON.stringify(req.body));
     res.send("OK");
