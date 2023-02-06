@@ -1,5 +1,5 @@
 let data;
-
+let flag = false;
 const response = async() =>{
   console.log('Response Function Running');
   console.log(data);
@@ -34,20 +34,47 @@ const removeScript = (node) =>{
     if(String(key) == String(node.srcElement.innerText)){
       switch(data[key]){
         case false:
-          console.log('false');
+          console.log('false <-BEFORE');
           data[key] = true;
           console.log(data);
           node.srcElement.classList.remove('removed');
           break;
         case true:
-          console.log('true')
+          console.log('true <-BEFORE')
           data[key] = false;
+          flag = false;
           console.log(data);
           node.srcElement.classList.add('removed');
           break;
       }
     }
   })
+}
+const removeFin = async()=>{
+  const taskArr = document.querySelectorAll('.task');
+  Object.keys(data).forEach(key =>{
+    taskArr.forEach(async(val)=>{
+      if(data[key] === false){
+        console.log(`${data[key]}, ${data[key]}`);
+        if(String(key) === String(val.innerText)){
+          console.log(`key: ${key}, val: ${val.innerText}`)
+          delete data[key];
+          console.log('Response Function Running');
+          console.log(data);
+          const res = await fetch('/task/update', 
+          {
+            method: 'POST',
+            headers: {
+            "Content-type": "application/json"
+          },
+          body: JSON.stringify(data)
+  })
+        }
+      }
+
+    })
+  })
+  
 }
 
 const showTask = async() =>{
@@ -83,6 +110,9 @@ update.addEventListener('click', response);
 
 const add = document.querySelector('.add');
 add.addEventListener('click', responseAdd);
+
+const removeFinished = document.querySelector('.remove');
+removeFinished.addEventListener('click', removeFin)
 
 showTask();
 
