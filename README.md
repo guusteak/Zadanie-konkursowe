@@ -1,6 +1,7 @@
 <h1>Przetestuj online<h1><br>
 https://codesandbox.io/p/sandbox/sleepy-swartz-clfikg?file=%2FREADME.md
 <br>
+<h2>Wybieramy terminal -> wpisujemy: node index.js -> klikamy open z powiadomienia, które pojwai się na dole -> minimalizujemy terminal</h2>
 Pomalowane na czerwono - oznaczone jako zrobione<br>
 Przyciskiem do usuwania - wiadomo usuwa sie, plus usuwa sie z obiektu wysyłanego do backendu<br>
 Przycisk do dodawania - dodawanie do obiektu i dodawanie na strone<br>
