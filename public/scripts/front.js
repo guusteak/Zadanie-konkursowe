@@ -32,7 +32,6 @@ const removeScript = (node) =>{
   console.log('removeScript running');
   Object.keys(data).forEach(key=>{
     if(String(key) == String(node.srcElement.innerText)){
-      console.log('sprawdzone');
       switch(data[key]){
         case false:
           console.log('false');

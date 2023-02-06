@@ -31,7 +31,14 @@ body{
     align-items: center;
     justify-content: center;
     height: 10%;
+    min-height: 40px;
 }
+
+.task:hover{
+    cursor: pointer;
+    background-color: aqua;
+}
+
 .operator-panel{
     min-width: 300px;
     margin-top: 20px;
@@ -48,4 +55,5 @@ body{
 }
 .removed{
     text-decoration: dashed;
+    background-color: red;
 }
