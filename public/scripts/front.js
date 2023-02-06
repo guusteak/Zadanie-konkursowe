@@ -110,8 +110,8 @@ const showTask = async () => {
   }
 };
 
-const update = document.querySelector(".update");
-update.addEventListener("click", response);
+//const update = document.querySelector(".update");
+//update.addEventListener("click", response);
 
 const add = document.querySelector(".add");
 add.addEventListener("click", responseAdd);
